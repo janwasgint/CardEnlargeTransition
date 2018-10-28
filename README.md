@@ -3,7 +3,7 @@
 Present a ViewController originating from a card (UIView)/
 
 ## Demo
-![](https://github.com/janwasgint/CardEnlargingTransition/blob/master/demo.gif)
+![](https://github.com/janwasgint/CardEnlargeTransition/blob/master/demo.gif)
 
 ## Usage
 To present a ViewController originating from a card, the presenting ViewController has to inherit from `CardAnimationViewController`. Then in `prepare(for segue: ...)` call
