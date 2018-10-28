@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BC1E4B742185DD3500332A01 /* CardAnimationValues.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC1E4B732185DD3500332A01 /* CardAnimationValues.swift */; };
+		BC1E4B762185E05200332A01 /* CardAnimationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC1E4B752185E05200332A01 /* CardAnimationViewController.swift */; };
 		BC635713217A81150005B295 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC635712217A81150005B295 /* AppDelegate.swift */; };
 		BC635715217A81150005B295 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC635714217A81150005B295 /* ViewController.swift */; };
 		BC635718217A81150005B295 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BC635716217A81150005B295 /* Main.storyboard */; };
@@ -15,6 +17,8 @@
 		BC635728217A81170005B295 /* CardEnlargingTransitionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC635727217A81170005B295 /* CardEnlargingTransitionTests.swift */; };
 		BC635733217A81170005B295 /* CardEnlargingTransitionUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC635732217A81170005B295 /* CardEnlargingTransitionUITests.swift */; };
 		BC635742217A83EA0005B295 /* CardEnlargeAnimationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC635741217A83EA0005B295 /* CardEnlargeAnimationController.swift */; };
+		BCB72ACC217B280100F9EEBC /* PresentedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCB72ACB217B280100F9EEBC /* PresentedViewController.swift */; };
+		BCB72ACE217B29EC00F9EEBC /* CardShrinkAnimationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCB72ACD217B29EC00F9EEBC /* CardShrinkAnimationController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +39,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		BC1E4B732185DD3500332A01 /* CardAnimationValues.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardAnimationValues.swift; sourceTree = "<group>"; };
+		BC1E4B752185E05200332A01 /* CardAnimationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardAnimationViewController.swift; sourceTree = "<group>"; };
 		BC63570F217A81150005B295 /* CardEnlargingTransition.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CardEnlargingTransition.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC635712217A81150005B295 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BC635714217A81150005B295 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -49,6 +55,8 @@
 		BC635732217A81170005B295 /* CardEnlargingTransitionUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardEnlargingTransitionUITests.swift; sourceTree = "<group>"; };
 		BC635734217A81170005B295 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BC635741217A83EA0005B295 /* CardEnlargeAnimationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardEnlargeAnimationController.swift; sourceTree = "<group>"; };
+		BCB72ACB217B280100F9EEBC /* PresentedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentedViewController.swift; sourceTree = "<group>"; };
+		BCB72ACD217B29EC00F9EEBC /* CardShrinkAnimationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardShrinkAnimationController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +110,7 @@
 			children = (
 				BC635712217A81150005B295 /* AppDelegate.swift */,
 				BC635714217A81150005B295 /* ViewController.swift */,
+				BCB72ACB217B280100F9EEBC /* PresentedViewController.swift */,
 				BC635716217A81150005B295 /* Main.storyboard */,
 				BC635719217A81170005B295 /* Assets.xcassets */,
 				BC63571B217A81170005B295 /* LaunchScreen.storyboard */,
@@ -132,6 +141,9 @@
 			isa = PBXGroup;
 			children = (
 				BC635741217A83EA0005B295 /* CardEnlargeAnimationController.swift */,
+				BCB72ACD217B29EC00F9EEBC /* CardShrinkAnimationController.swift */,
+				BC1E4B732185DD3500332A01 /* CardAnimationValues.swift */,
+				BC1E4B752185E05200332A01 /* CardAnimationViewController.swift */,
 			);
 			path = Framework;
 			sourceTree = "<group>";
@@ -268,8 +280,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				BC635742217A83EA0005B295 /* CardEnlargeAnimationController.swift in Sources */,
+				BC1E4B742185DD3500332A01 /* CardAnimationValues.swift in Sources */,
 				BC635715217A81150005B295 /* ViewController.swift in Sources */,
+				BCB72ACC217B280100F9EEBC /* PresentedViewController.swift in Sources */,
 				BC635713217A81150005B295 /* AppDelegate.swift in Sources */,
+				BCB72ACE217B29EC00F9EEBC /* CardShrinkAnimationController.swift in Sources */,
+				BC1E4B762185E05200332A01 /* CardAnimationViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
