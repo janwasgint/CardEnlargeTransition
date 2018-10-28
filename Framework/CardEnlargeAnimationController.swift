@@ -21,8 +21,6 @@ class CardEnlargeAnimationController: NSObject, UIViewControllerAnimatedTransiti
     }
     
     func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
-        originView.isHidden = true
-        
         let originViewCornerRadius = originView.layer.cornerRadius
         originView.layer.cornerRadius = 0
         guard let toVC = transitionContext.viewController(forKey: .to),
@@ -52,6 +50,8 @@ class CardEnlargeAnimationController: NSObject, UIViewControllerAnimatedTransiti
         snapshotOfOriginView.layer.masksToBounds = true
         containerView.addSubview(snapshotOfOriginView)
         snapshotOfOriginView.frame = originView.frame
+        
+        originView.isHidden = true
         
         let duration = transitionDuration(using: transitionContext)
         
@@ -86,4 +86,6 @@ class CardEnlargeAnimationController: NSObject, UIViewControllerAnimatedTransiti
                 self.originView.isHidden = false
         })
     }
+    
+    
 }
