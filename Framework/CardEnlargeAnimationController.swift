@@ -32,8 +32,6 @@ class CardEnlargeAnimationController: NSObject, UIViewControllerAnimatedTransiti
         }
         originView.layer.cornerRadius = originViewCornerRadius
         
-        
-        
         let containerView = transitionContext.containerView
         containerView.backgroundColor = .white
         let finalFrame = transitionContext.finalFrame(for: toVC)
