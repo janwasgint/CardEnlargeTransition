@@ -34,9 +34,6 @@ extension CardAnimationViewController {
     
     func animationController(forDismissed dismissed: UIViewController)
         -> UIViewControllerAnimatedTransitioning? {
-            guard let _ = dismissed as? PresentedViewController else {
-                return nil
-            }
             return CardShrinkAnimationController(destinationView: cardView, snapshotOfDestinationViewBeforePresentTransition: snapshotOfCardView, cardTopOffset: CGSize(width: cardView.frame.minX, height: cardView.frame.minY))
     }
 }
