@@ -31,7 +31,6 @@ extension UIViewController {
 class CardEnlargeAnimationController: NSObject, UIViewControllerAnimatedTransitioning {
     
     private let originView: UIView
-    var delegate: CardAnimationControllerDelegate?
     
     init(originView: UIView) {
         self.originView = originView
