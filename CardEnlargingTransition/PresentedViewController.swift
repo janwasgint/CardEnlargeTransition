@@ -9,7 +9,18 @@
 import UIKit
 
 class PresentedViewController: UIViewController {
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+    }
     @IBAction func buttonPressed() {
-        dismiss(animated: true, completion: nil)
+        navigationController?.popViewController(animated: true)
+//        dismiss(animated: true, completion: nil)
     }
 }

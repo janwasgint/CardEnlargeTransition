@@ -17,6 +17,7 @@
 		BC635728217A81170005B295 /* CardEnlargingTransitionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC635727217A81170005B295 /* CardEnlargingTransitionTests.swift */; };
 		BC635733217A81170005B295 /* CardEnlargingTransitionUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC635732217A81170005B295 /* CardEnlargingTransitionUITests.swift */; };
 		BC635742217A83EA0005B295 /* CardEnlargeAnimationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC635741217A83EA0005B295 /* CardEnlargeAnimationController.swift */; };
+		BC70FE542186FFC900B937B6 /* CardAnimationControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC70FE532186FFC900B937B6 /* CardAnimationControllerDelegate.swift */; };
 		BCB72ACC217B280100F9EEBC /* PresentedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCB72ACB217B280100F9EEBC /* PresentedViewController.swift */; };
 		BCB72ACE217B29EC00F9EEBC /* CardShrinkAnimationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCB72ACD217B29EC00F9EEBC /* CardShrinkAnimationController.swift */; };
 /* End PBXBuildFile section */
@@ -55,6 +56,7 @@
 		BC635732217A81170005B295 /* CardEnlargingTransitionUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardEnlargingTransitionUITests.swift; sourceTree = "<group>"; };
 		BC635734217A81170005B295 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BC635741217A83EA0005B295 /* CardEnlargeAnimationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardEnlargeAnimationController.swift; sourceTree = "<group>"; };
+		BC70FE532186FFC900B937B6 /* CardAnimationControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardAnimationControllerDelegate.swift; sourceTree = "<group>"; };
 		BCB72ACB217B280100F9EEBC /* PresentedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentedViewController.swift; sourceTree = "<group>"; };
 		BCB72ACD217B29EC00F9EEBC /* CardShrinkAnimationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardShrinkAnimationController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -140,6 +142,7 @@
 		BC635740217A81220005B295 /* Framework */ = {
 			isa = PBXGroup;
 			children = (
+				BC70FE532186FFC900B937B6 /* CardAnimationControllerDelegate.swift */,
 				BC635741217A83EA0005B295 /* CardEnlargeAnimationController.swift */,
 				BCB72ACD217B29EC00F9EEBC /* CardShrinkAnimationController.swift */,
 				BC1E4B732185DD3500332A01 /* CardAnimationValues.swift */,
@@ -282,6 +285,7 @@
 				BC635742217A83EA0005B295 /* CardEnlargeAnimationController.swift in Sources */,
 				BC1E4B742185DD3500332A01 /* CardAnimationValues.swift in Sources */,
 				BC635715217A81150005B295 /* ViewController.swift in Sources */,
+				BC70FE542186FFC900B937B6 /* CardAnimationControllerDelegate.swift in Sources */,
 				BCB72ACC217B280100F9EEBC /* PresentedViewController.swift in Sources */,
 				BC635713217A81150005B295 /* AppDelegate.swift in Sources */,
 				BCB72ACE217B29EC00F9EEBC /* CardShrinkAnimationController.swift in Sources */,

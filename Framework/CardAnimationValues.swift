@@ -10,7 +10,7 @@ import UIKit
 
 final class CardAnimationValues {
     static let cardCornerRadius: CGFloat = 15
-    static let cardAnimationDuration: TimeInterval = 0.5
+    static let cardAnimationDuration: TimeInterval = 10
     
     static func topFrame(cardViewFrame: CGRect, containerView: UIView) -> CGRect {
         let sideInset = cardViewFrame.minX * 0.4

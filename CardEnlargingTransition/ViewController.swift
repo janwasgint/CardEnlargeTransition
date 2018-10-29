@@ -8,15 +8,17 @@
 
 import UIKit
 
-class ViewController: CardAnimationViewController {
+class ViewController: UIViewController {
     @IBOutlet weak var cardView: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        navigationController?.navigationBar.isHidden = true
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        cardEnlargeTransition(cardView: cardView, toVC: segue.destination)
+        CardAnimationViewController.setup(cardView: cardView, fromVC: self, navigationController: navigationController!)
+//        CardAnimationViewController.setup(cardView: cardView, segue: segue)
     }
 }

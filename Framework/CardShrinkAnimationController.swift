@@ -13,6 +13,7 @@ class CardShrinkAnimationController: NSObject, UIViewControllerAnimatedTransitio
     private let destinationView: UIView // necessary because we need a handle to the real view to hide it during the transition and show it again afterwards
     private let snapshotOfDestinationView: UIView // necessary because we need a version of the destination view after view did load (captured before present transition)
     private let originalFrameOfDestinationView: CGRect
+    var delegate: CardAnimationControllerDelegate?
     
     init(destinationView: UIView, snapshotOfDestinationViewBeforePresentTransition: UIView, cardTopOffset: CGSize) {
         self.destinationView = destinationView
@@ -50,6 +51,8 @@ class CardShrinkAnimationController: NSObject, UIViewControllerAnimatedTransitio
         snapshotOfDestinationView.frame = snapshotOfFromVC.frame
         
         fromVC.view.isHidden = true
+        
+        toVC.showTabBar()
         
         let duration = transitionDuration(using: transitionContext)
                 
