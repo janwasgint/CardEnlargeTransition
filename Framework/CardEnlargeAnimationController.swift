@@ -21,69 +21,80 @@ class CardEnlargeAnimationController: NSObject, UIViewControllerAnimatedTransiti
     }
     
     func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
-        let originViewCornerRadius = originView.layer.cornerRadius
-        originView.layer.cornerRadius = 0
         guard let toVC = transitionContext.viewController(forKey: .to),
             let snapshotOfToVC = toVC.view.snapshotView(afterScreenUpdates: true),
-            let snapshotOfOriginView = originView.snapshotView(afterScreenUpdates: true)
-            else {
-                originView.layer.cornerRadius = originViewCornerRadius
-                return
+            let snapshotOfOriginView = snapshotWithoutCornerRadius(view: originView) else {
+            return
         }
-        originView.layer.cornerRadius = originViewCornerRadius
-        
         let containerView = transitionContext.containerView
-        containerView.backgroundColor = .white
-        let finalFrame = transitionContext.finalFrame(for: toVC)
-        
-        snapshotOfToVC.frame = originView.frame
-        snapshotOfToVC.layer.cornerRadius = 15
-        snapshotOfToVC.layer.masksToBounds = true
-        
-        
-        containerView.addSubview(snapshotOfToVC)
-        toVC.view.isHidden = true
-        
-        snapshotOfOriginView.layer.cornerRadius = 15
-        snapshotOfOriginView.layer.masksToBounds = true
-        containerView.addSubview(snapshotOfOriginView)
-        snapshotOfOriginView.frame = originView.frame
         
         originView.isHidden = true
+        toVC.view.isHidden = true
         
-        let duration = transitionDuration(using: transitionContext)
+        snapshotOfToVC.resize(toFrameOfView: originView)
+        snapshotOfOriginView.resize(toFrameOfView: originView)
+
+        containerView.addSubview(snapshotOfToVC)
+        containerView.addSubview(snapshotOfOriginView)
         
+        animateCard(snapshotOfToVC: snapshotOfToVC, snapshotOfOriginView: snapshotOfOriginView, transitionContext: transitionContext)
+        { _ in
+            self.restoreViewState(toVC: toVC, snapshotOfToVC: snapshotOfToVC, snapshotOfOriginView: snapshotOfOriginView, containerView: containerView)
+            transitionContext.completeTransition(!transitionContext.transitionWasCancelled)
+        }
+    }
+    
+    fileprivate func snapshotWithoutCornerRadius(view: UIView) -> UIView? {
+        let cornerRadius = view.layer.cornerRadius
+        view.layer.cornerRadius = 0
+        let snapshot = view.snapshotView(afterScreenUpdates: true)
+        view.layer.cornerRadius = cornerRadius
+        return snapshot
+    }
+    
+    fileprivate func animateCard(snapshotOfToVC: UIView, snapshotOfOriginView: UIView, transitionContext: UIViewControllerContextTransitioning, completion: @escaping (Bool) -> ()) {
+        guard let toVC = transitionContext.viewController(forKey: .to) else {
+            return
+        }
+        let finalFrame = transitionContext.finalFrame(for: toVC)
         UIView.animateKeyframes(
-            withDuration: duration,
+            withDuration: transitionDuration(using: transitionContext),
             delay: 0,
             options: .calculationModeCubic,
             animations: {
-                UIView.addKeyframe(withRelativeStartTime: 0.0, relativeDuration: 1/2) {
-                    let topFrame = CardAnimationValues.topFrame(cardViewFrame: self.originView.frame, containerView: containerView)
-                    
-                    snapshotOfToVC.frame = topFrame
-                    snapshotOfOriginView.frame = topFrame
-                }
-                
-                UIView.addKeyframe(withRelativeStartTime: 1/2, relativeDuration: 1/2) {
-                
-                    snapshotOfToVC.frame = finalFrame
-                    snapshotOfToVC.layer.cornerRadius = 0
-                    
-                    snapshotOfOriginView.frame = finalFrame
-                    snapshotOfOriginView.layer.cornerRadius = 0
-                    snapshotOfOriginView.alpha = 0
-                }
-        },
-            completion: { _ in
-                toVC.view.isHidden = false
-                snapshotOfToVC.removeFromSuperview()
-                snapshotOfOriginView.removeFromSuperview()
-                transitionContext.completeTransition(!transitionContext.transitionWasCancelled)
-                containerView.addSubview(toVC.view)
-                self.originView.isHidden = false
-        })
+                self.moveCardToTopFrame(snapshotOfToVC: snapshotOfToVC, snapshotOfOriginView: snapshotOfOriginView, screenFrame: transitionContext.containerView.frame)
+                self.moveCardToFinalFrame(snapshotOfToVC: snapshotOfToVC, snapshotOfOriginView: snapshotOfOriginView, finalFrame: finalFrame)
+        }, completion: completion)
     }
     
+    fileprivate func moveCardToTopFrame(snapshotOfToVC: UIView, snapshotOfOriginView: UIView, screenFrame: CGRect) {
+        UIView.addKeyframe(withRelativeStartTime: 0.0, relativeDuration: 1/2) {
+            // the animationns goes up first and then fills the screen. The position and size at the top is definded by topFrame
+            let topFrame = CardAnimationValues.topFrame(cardViewFrame: self.originView.frame, screenFrame: screenFrame)
+            
+            snapshotOfToVC.frame = topFrame
+            snapshotOfOriginView.frame = topFrame
+        }
+    }
     
+    fileprivate func moveCardToFinalFrame(snapshotOfToVC: UIView, snapshotOfOriginView: UIView, finalFrame: CGRect) {
+        UIView.addKeyframe(withRelativeStartTime: 1/2, relativeDuration: 1/2) {
+            snapshotOfToVC.frame = finalFrame
+            snapshotOfOriginView.frame = finalFrame
+            
+            snapshotOfToVC.layer.cornerRadius = 0
+            snapshotOfOriginView.layer.cornerRadius = 0
+            snapshotOfOriginView.alpha = 0
+        }
+    }
+    
+    fileprivate func restoreViewState(toVC: UIViewController, snapshotOfToVC: UIView, snapshotOfOriginView: UIView, containerView: UIView) {
+        snapshotOfToVC.removeFromSuperview()
+        snapshotOfOriginView.removeFromSuperview()
+        
+        toVC.view.isHidden = false
+        self.originView.isHidden = false
+        
+        containerView.addSubview(toVC.view)
+    }
 }

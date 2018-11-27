@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BC0ECD5C21ADC18D001BA500 /* HelperExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0ECD5B21ADC18D001BA500 /* HelperExtensions.swift */; };
 		BC1E4B742185DD3500332A01 /* CardAnimationValues.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC1E4B732185DD3500332A01 /* CardAnimationValues.swift */; };
 		BC1E4B762185E05200332A01 /* CardAnimationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC1E4B752185E05200332A01 /* CardAnimationViewController.swift */; };
 		BC635713217A81150005B295 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC635712217A81150005B295 /* AppDelegate.swift */; };
@@ -39,6 +40,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		BC0ECD5B21ADC18D001BA500 /* HelperExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelperExtensions.swift; sourceTree = "<group>"; };
 		BC1E4B732185DD3500332A01 /* CardAnimationValues.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardAnimationValues.swift; sourceTree = "<group>"; };
 		BC1E4B752185E05200332A01 /* CardAnimationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardAnimationViewController.swift; sourceTree = "<group>"; };
 		BC63570F217A81150005B295 /* CardEnlargingTransition.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CardEnlargingTransition.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -144,6 +146,7 @@
 				BCB72ACD217B29EC00F9EEBC /* CardShrinkAnimationController.swift */,
 				BC1E4B732185DD3500332A01 /* CardAnimationValues.swift */,
 				BC1E4B752185E05200332A01 /* CardAnimationViewController.swift */,
+				BC0ECD5B21ADC18D001BA500 /* HelperExtensions.swift */,
 			);
 			path = Framework;
 			sourceTree = "<group>";
@@ -279,6 +282,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BC0ECD5C21ADC18D001BA500 /* HelperExtensions.swift in Sources */,
 				BC635742217A83EA0005B295 /* CardEnlargeAnimationController.swift in Sources */,
 				BC1E4B742185DD3500332A01 /* CardAnimationValues.swift in Sources */,
 				BC635715217A81150005B295 /* ViewController.swift in Sources */,
